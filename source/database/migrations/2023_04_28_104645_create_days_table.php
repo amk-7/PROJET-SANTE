@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateImagesTable extends Migration
+class CreateDaysTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,15 @@ class CreateImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('images', function (Blueprint $table) {
-            $table->bigIncrements('image_id');
-            $table->string('image_path');
+        Schema::create('days', function (Blueprint $table) {
+            $table->bigIncrements('day_id');
+            $table->timeTz('start_time');
+            $table->timeTz('end_time');
+            $table->string('link')->nullable();
+            $table->bigInteger('address_id')->nullable();
             $table->bigInteger('event_id');
             $table->timestamps();
+            $table->foreign('address_id')->references('address_id')->on('addresses')->nullOnDelete();
             $table->foreign('event_id')->references('event_id')->on('events');
         });
     }
@@ -29,6 +33,6 @@ class CreateImagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('days');
     }
 }

@@ -14,8 +14,13 @@ class CreateTarifsTable extends Migration
     public function up()
     {
         Schema::create('tarifs', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('tarif_id');
+            $table->float('montant')->unsigned();
+            $table->bigInteger('unite_id');
+            $table->bigInteger('currency_id');
             $table->timestamps();
+            $table->foreign('unite_id')->references('unite_id')->on('unites');
+            $table->foreign('currency_id')->references('currency_id')->on('currencys');
         });
     }
 
