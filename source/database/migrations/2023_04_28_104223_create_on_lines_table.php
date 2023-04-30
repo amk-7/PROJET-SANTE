@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateConsultantsHorairesTable extends Migration
+class CreateOnLinesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateConsultantsHorairesTable extends Migration
      */
     public function up()
     {
-        Schema::create('consultants_horaires', function (Blueprint $table) {
-            $table->id();
+        Schema::create('on_lines', function (Blueprint $table) {
+            $table->bigInteger('on_line_id');
+            $table->bigIncrements('consultation_id');
             $table->timestamps();
+            $table->foreign('consultation_id')->references('consultation_id')->on('consultations')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
@@ -26,6 +28,6 @@ class CreateConsultantsHorairesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('consultants_horaires');
+        Schema::dropIfExists('on_lines');
     }
 }

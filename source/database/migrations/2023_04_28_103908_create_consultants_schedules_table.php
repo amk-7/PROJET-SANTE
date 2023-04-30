@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJoursTable extends Migration
+class CreateConsultantsSchedulesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateJoursTable extends Migration
      */
     public function up()
     {
-        Schema::create('jours', function (Blueprint $table) {
-            $table->id();
+        Schema::create('consultants_schedules', function (Blueprint $table) {
+            $table->foreignId('consultant_id');
+            $table->foreignId('schedule_id');
+            $table->enum('day', [1,2,3,4,5,6,7]);
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateJoursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jours');
+        Schema::dropIfExists('consultants_schedules');
     }
 }

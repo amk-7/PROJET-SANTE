@@ -14,7 +14,12 @@ class CreateConsultationsTable extends Migration
     public function up()
     {
         Schema::create('consultations', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('consultation_id');
+            $table->date('date');
+            $table->timeTz('start_time');
+            $table->timeTz('end_time');
+            $table->boolean('state'); // Si la consultation à été annulé ou pas.
+            $table->boolean('do'); // Si la consultation à été faite ou pas.
             $table->timestamps();
         });
     }
