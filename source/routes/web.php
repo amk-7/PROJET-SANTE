@@ -20,6 +20,21 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+/*les routeurs concernants un patient: fayssol */
+Route::get('/create', function () {
+    return view('patients.create');
+});
+
+Route::get('/index', function () {
+    return view('patients.index');
+});
+
+Route::get('/show', function () {
+    return view('patients.show');
+});
+
+
+/**fin */
 
 /*Route::get('/dashboard', function () {
     return view('dashboard');
