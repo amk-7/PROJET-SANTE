@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHorairesTable extends Migration
+class CreateCurrencysTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateHorairesTable extends Migration
      */
     public function up()
     {
-        Schema::create('horaires', function (Blueprint $table) {
-            $table->id();
+        Schema::create('currencys', function (Blueprint $table) {
+            $table->bigIncrements('currency_id');
+            $table->string('libelle');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateHorairesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('horaires');
+        Schema::dropIfExists('currencys');
     }
 }

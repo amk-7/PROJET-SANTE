@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUnitesTable extends Migration
+class CreateStaffsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateUnitesTable extends Migration
      */
     public function up()
     {
-        Schema::create('unites', function (Blueprint $table) {
-            $table->id();
-            $table->string("libelle");
+        Schema::create('staffs', function (Blueprint $table) {
+            $table->bigIncrements('staff_id');
+            $table->bigInteger('user_id');
             $table->timestamps();
+            $table->softDeletes();
+            $table->foreign('user_id')->references('user_id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
@@ -27,6 +29,6 @@ class CreateUnitesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('unites');
+        Schema::dropIfExists('staffs');
     }
 }

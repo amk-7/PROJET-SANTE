@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePolitiqueAnnulationsTable extends Migration
+class CreateSchedulesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreatePolitiqueAnnulationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('politique_annulations', function (Blueprint $table) {
-            $table->id();
+        Schema::create('schedules', function (Blueprint $table) {
+            $table->bigIncrements('schedule_id');
+            $table->timeTz('start_time');
+            $table->timeTz('end_time');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreatePolitiqueAnnulationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('politique_annulations');
+        Schema::dropIfExists('schedules');
     }
 }

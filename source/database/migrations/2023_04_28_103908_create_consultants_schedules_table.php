@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePresentielsTable extends Migration
+class CreateConsultantsSchedulesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreatePresentielsTable extends Migration
      */
     public function up()
     {
-        Schema::create('presentiels', function (Blueprint $table) {
-            $table->id();
+        Schema::create('consultants_schedules', function (Blueprint $table) {
+            $table->foreignId('consultant_id');
+            $table->foreignId('schedule_id');
+            $table->enum('day', [1,2,3,4,5,6,7]);
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreatePresentielsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('presentiels');
+        Schema::dropIfExists('consultants_schedules');
     }
 }
