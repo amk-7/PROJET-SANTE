@@ -21,6 +21,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
+Route::get('/create_staff', function () {
+    return view('staffs.create');
+});
+
 /*Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');*/
