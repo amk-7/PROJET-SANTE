@@ -21,15 +21,15 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 /*les routeurs concernants un patient: fayssol */
-Route::get('/create', function () {
+Route::get('/create_patient', function () {
     return view('patients.create');
 });
 
-Route::get('/index', function () {
+Route::get('/index_patient', function () {
     return view('patients.index');
 });
 
-Route::get('/show', function () {
+Route::get('/show_patient', function () {
     return view('patients.show');
 });
 
