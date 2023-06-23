@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Consultation;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\Calendrier;
 
 class User extends Authenticatable
 {
@@ -43,4 +47,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+
+    public function consultations()
+    {
+        return $this->hasMany(Consultation::class);
+    }
+
+    public function calendrier():BelongsTo{
+        return $this->belongsTo(Calendrier::class);
+    }
 }
