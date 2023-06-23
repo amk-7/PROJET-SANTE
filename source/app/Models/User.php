@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use App\Models\Patient;
+use App\Models\Admin;
+
 
 class User extends Authenticatable
 {
@@ -43,4 +47,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function patient():HasOne{
+        return $this->hasOne(Patient::class);
+    }
+
+    public function admin():HasOne{
+        return $this->hasOne(Admin::class);
+    }
 }
