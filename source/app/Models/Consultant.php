@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Models\Consultation;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -49,6 +52,12 @@ class User extends Authenticatable
     ];
 
 
+    public function user():BelongsTo
+    {
+        return $this-> belongsTo(User::class);
+    }
+
+
 
     public function consultations()
     {
@@ -58,4 +67,5 @@ class User extends Authenticatable
     public function calendrier():BelongsTo{
         return $this->belongsTo(Calendrier::class);
     }
+
 }
