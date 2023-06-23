@@ -9,6 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
+use App\Models\Patient;
+use App\Models\Admin;
+
+
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -45,7 +50,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
     public function consultant():HasOne{
         return $this -> HasOne(consultant::class);
+
+
+    public function patient():HasOne{
+        return $this->hasOne(Patient::class);
+    }
+
+    public function admin():HasOne{
+        return $this->hasOne(Admin::class);
+
     }
 }

@@ -6,12 +6,12 @@
     $placeholder = $placeholder ?? "";
 @endphp
 @if($tag==="input")
-<div class="from-group col-12 w-50 mt-4">
+<div class="from-group col-4 w-50 mt-4">
     <label class="" for="{{ $name  }}">{{ $label  }}</label>
     <input class="form-control " type="text" name="{{ $name  }}" value="{{ $value  }}" placeholder="{{ $placeholder  }}">
 </div>
 @endif
-@if($tag==="texarea")
+@if($tag==="textarea")
     <div class="from-group col-12 w-50 mt-4">
         <label class="" for="{{ $name  }}">{{ $label  }}</label>
         <textarea class="form-control" name="{{ $name  }}" placeholder="{{ $placeholder  }}" rows="10">
