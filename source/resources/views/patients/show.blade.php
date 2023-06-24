@@ -1,7 +1,6 @@
-@extends('layouts.base')
+@extends('layouts.base_dashbord')
 @section('content')
 
-<p>Pour plus de détails sur un patient.</p>
-
+    <p>Pour plus de détails sur un patient.</p>
 
 @endsection
