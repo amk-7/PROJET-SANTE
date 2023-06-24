@@ -19,8 +19,8 @@ class CreateTarifsTable extends Migration
             $table->bigInteger('unite_id');
             $table->bigInteger('currency_id');
             $table->timestamps();
-            $table->foreign('unite_id')->references('unite_id')->on('unites');
-            $table->foreign('currency_id')->references('currency_id')->on('currencys');
+            $table->foreign('unite_id')->references('unite_id')->on('unites')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('currency_id')->references('currency_id')->on('currencys')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

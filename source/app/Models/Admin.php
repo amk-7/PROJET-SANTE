@@ -14,6 +14,10 @@ class Admin extends Model
 {
     use HasFactory;
 
+    protected $table = 'staffs';
+    protected $primaryKey ='staff_id';
+    protected $fillable = ['user_id'];
+
     public function evenements():HasMany{
         return $this->hasMany(Evenement::class);
     }

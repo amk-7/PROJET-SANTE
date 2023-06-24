@@ -18,7 +18,7 @@ class CreateImagesTable extends Migration
             $table->string('image_path');
             $table->bigInteger('event_id');
             $table->timestamps();
-            $table->foreign('event_id')->references('event_id')->on('events');
+            $table->foreign('event_id')->references('event_id')->on('events')>onDelete('cascade')->onUpdate('cascade');
         });
     }
 

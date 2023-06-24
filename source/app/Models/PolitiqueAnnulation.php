@@ -11,6 +11,9 @@ use App\Models\MethodePayement;
 class PolitiqueAnnulation extends Model
 {
     use HasFactory;
+    protected $table = 'cancelation_politiques';
+    protected $primaryKey = 'cancelation_politique_id';
+    protected $fillable = ['payement_mode_id','administrator','number','percentage'];
 
     public function admin():BelongsTo{
         return $this->belongsTo(Admin::class);

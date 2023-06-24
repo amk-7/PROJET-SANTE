@@ -11,6 +11,10 @@ class Enligne extends Model
 {
     use HasFactory;
 
+    protected $table = 'on_lines';
+    protected $primaryKey = 'on_line_id';
+    protected $fillable = ['consultation_id'];
+
     public function consultation():BelongsTo{
         return $this->belongsTo(Consultation::class);
     }

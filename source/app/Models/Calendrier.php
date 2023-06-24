@@ -12,6 +12,9 @@ class Calendrier extends Model
 {
     use HasFactory;
 
+    protected $table = 'consultants_horaires';
+
+    protected $fillable = ['schedule_id','consultant_id'];
     public function consultants():HasMany{
         return $this->hasMany(Consultant::class);
     }

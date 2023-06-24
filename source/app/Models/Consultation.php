@@ -15,6 +15,10 @@ class Consultation extends Model
 {
     use HasFactory;
 
+    protected $table = 'consultations';
+    protected $primaryKey = 'consultation_id';
+    protected $fillable = ['consultant_id','patient_id','date','start_time','end_time','state','do'];
+
     public function patient():BelongsTo{
         return $this->belongsTo(Patient::class);
     }

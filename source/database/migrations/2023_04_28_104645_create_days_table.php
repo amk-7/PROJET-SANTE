@@ -22,7 +22,7 @@ class CreateDaysTable extends Migration
             $table->bigInteger('event_id');
             $table->timestamps();
             $table->foreign('address_id')->references('address_id')->on('addresses')->nullOnDelete();
-            $table->foreign('event_id')->references('event_id')->on('events');
+            $table->foreign('event_id')->references('event_id')->on('events')>onDelete('cascade')->onUpdate('cascade');
         });
     }
 
