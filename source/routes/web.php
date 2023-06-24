@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PatientController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,7 +45,7 @@ Route::get('/create_staff', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');*/
 
-Route::ressources([
+Route::resources([
 'patients'=> PatientController::class,
 'consultants' => ConsultantControler::class,
 'tarifs' => TarifController::class,
@@ -60,8 +61,6 @@ Route::ressources([
 'cancelation_politiques'=> ConcelationPolitqueController::class,
 'schedules'=> shedulesController::class,
 'specialitys' => specialityController::class,
-
-
-])
+]);
 
 require __DIR__.'/auth.php';

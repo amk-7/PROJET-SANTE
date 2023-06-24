@@ -23,8 +23,8 @@ class CreateConsultationsTable extends Migration
             $table->boolean('state'); // Si la consultation à été annulé ou pas.
             $table->boolean('do'); // Si la consultation à été faite ou pas.
             $table->timestamps();
-            $table->foreign('consultant_id')->references('id')->on('consultants')>onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('patient_id')->references('id_patients')->on('patients')>onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('consultant_id')->references('id')->on('consultants')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('patient_id')->references('id_patients')->on('patients')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
