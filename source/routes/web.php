@@ -44,4 +44,24 @@ Route::get('/create_staff', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');*/
 
+Route::ressources([
+'patients'=> PatientController::class,
+'consultants' => ConsultantControler::class,
+'tarifs' => TarifController::class,
+'payement_modes' => PayementController::class,
+'consultations' => ConsultationController::class,
+'staffs' => StaffController::class,
+'events'=> EventController::class,
+'face_to_faces' => Face_to_faceController::class,
+'days' => DayController::class,
+'images' => ImageController::class,
+'addresses' => AddressesController::class,
+'on_lines' => On_lineController::class,
+'cancelation_politiques'=> ConcelationPolitqueController::class,
+'schedules'=> shedulesController::class,
+'specialitys' => specialityController::class,
+
+
+])
+
 require __DIR__.'/auth.php';
