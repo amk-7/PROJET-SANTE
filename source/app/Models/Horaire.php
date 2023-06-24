@@ -10,7 +10,11 @@ use App\Models\Calendrier;
 class Horaire extends Model
 {
     use HasFactory;
+    protected $table = 'schedules';
 
+    protected $primaryKey = 'schedule_id';
+
+    protected $fillable = ['start_time','end_time'];
     public function calendrier():BelongsTo{
         return $this->belongsTo(Calendrier::class);
     }

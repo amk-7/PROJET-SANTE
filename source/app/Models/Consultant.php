@@ -12,52 +12,29 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Models\Consultation;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\Calendrier;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Authenticatable
+class Consultant extends Model
 {
-    use HasApiTokens, HasFactory, Notifiable;
+
+    use HasFactory,SoftDeletes,HasApiTokens,Notifiable;
+    
+    protected $fillable = ['license_number','medical_degree_file_path','competences_attestation_file_path','competences_certificate_file_path','profile_confimed','user_id','tarif_id','speciality_id'];
+    protected $table = 'consultants';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'lastname',
-        'firstname',
-        'contact',
-        'email',
-        'password',
-    ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
-
+   
     public function user():BelongsTo
     {
         return $this-> belongsTo(User::class);
     }
-
-
 
     public function consultations()
     {

@@ -8,13 +8,20 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Consultation;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Patient
+class Patient extends Model
 {
-    protected $fillable = ['nom', 'prenom', 'email'];
+
+    use SoftDeletes;
+
+    protected $fillable = ['health_problem_list','medical_history','allergy','medical_record_paths','user_id'];
+    protected $table = 'patients';
+    protected $primaryKey = 'id_patients';
 
     public function consultations()
     {

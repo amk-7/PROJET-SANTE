@@ -10,7 +10,9 @@ use Illuminate\Database\Eloquent\Model;
 class Jour extends Model
 {
     use HasFactory;
-    protected $fillable = ['date','horaire','adresse','lien'];
+    protected $table = 'days';
+    protected $primaryKey = 'day_id';
+    protected $fillable = ['start_time','end_time','link','address_id','event_id'];
 
     public function evenement():BelongsTo{
         return $this->belongsTo(Evenement::class);

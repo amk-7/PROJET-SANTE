@@ -13,6 +13,9 @@ use App\Models\Admin;
 class Evenement extends Model
 {
     use HasFactory;
+    protected $table = 'events';
+    protected $primaryKey = 'event_id';
+    protected $fillable = ['staff_id','title','description'];
 
     public function jours():HasMany{
         return $this->hasMany(Jour::class);

@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Unite extends Model
 {
     use HasFactory;
+    protected $table = 'unites';
+    protected $fillable = ['libelle'];
+    protected $primaryKey = 'unite_id';
 }

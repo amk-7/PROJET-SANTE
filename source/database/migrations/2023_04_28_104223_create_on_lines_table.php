@@ -14,8 +14,8 @@ class CreateOnLinesTable extends Migration
     public function up()
     {
         Schema::create('on_lines', function (Blueprint $table) {
-            $table->bigInteger('on_line_id');
-            $table->bigIncrements('consultation_id');
+            $table->bigIncrements('on_line_id');
+            $table->bigInteger('consultation_id');
             $table->timestamps();
             $table->foreign('consultation_id')->references('consultation_id')->on('consultations')->cascadeOnDelete()->cascadeOnUpdate();
         });

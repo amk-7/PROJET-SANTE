@@ -11,6 +11,9 @@ class Presentiel extends Model
 {
     use HasFactory;
 
+    protected $table = 'face_to_faces';
+    protected $primaryKey = 'face_to_face_id';
+    protected $fillable = ['address','consultation_id'];
     public function consultation():BelongsTo{
         return $this->belongsTo(Consultation::class);
     }
