@@ -14,17 +14,12 @@ class CreateConsultantsSchedulesTable extends Migration
     public function up()
     {
         Schema::create('consultants_schedules', function (Blueprint $table) {
-            /*$table->foreignId('consultant_id');
-            $table->foreignId('schedule_id');
-            $table->enum('day', [1,2,3,4,5,6,7]);
-            $table->timestamps();*/
-
-            $table-bigInteger('schedule_id');
-            $table-bigInteger('consultant_id');
+            $table->bigInteger('schedule_id');
+            $table->bigInteger('consultant_id');
             $table->enum('day', [1,2,3,4,5,6,7]);
             $table->timestamps();
-            $table->foreign('schedule_id')->references('schedule_id')->on('schedules')>onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('consultant_id')->references('id')->on('consultants')>onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('schedule_id')->references('schedule_id')->on('schedules')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('consultant_id')->references('id')->on('consultants')->onDelete('cascade')->onUpdate('cascade');
             $table->primary(['schedule_id', 'consultant_id']);
         });
     }

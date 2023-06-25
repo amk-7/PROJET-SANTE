@@ -19,7 +19,7 @@ class CreateEventsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->timestamps();
-            $table->foreign('staff_id')->references('staff_id')->on('staffs')>onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('staff_id')->references('staff_id')->on('staffs')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Consultant extends Model
 {
 
+
     use HasFactory,SoftDeletes;
     
     protected $fillable = ['license_number','medical_degree_file_path','competences_attestation_file_path','competences_certificate_file_path','profile_confimed','user_id','tarif_id','speciality_id'];
