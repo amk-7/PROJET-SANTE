@@ -17,7 +17,7 @@ class ConsultantController extends Controller
 
     public function create()
     {
-        return view('consultant.create');
+        return view('staffs.create');
     }
 
     public function store(Request $request)
