@@ -3,7 +3,6 @@
 use App\Http\Controllers\PatientController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ConsultantController;
-
 use App\Http\Controllers\TarifController;
 use App\Http\Controllers\PayementController;
 use App\Http\Controllers\ConsultationController;
@@ -13,12 +12,11 @@ use App\Http\Controllers\Face_to_faceController;
 
 use App\Http\Controllers\DayController;
 use App\Http\Controllers\ImageController;
-
 use App\Http\Controllers\AddresseController;
 use App\Http\Controllers\On_lineController;
-use App\Http\Controllers\CancelationPolitqueController;
-use App\Http\Controllers\sheduleController;
-use App\Http\Controllers\specialityController;
+use App\Http\Controllers\CancelationPolitiqueController;
+use App\Http\Controllers\SheduleController;
+use App\Http\Controllers\SpecialityController;
 
 
 /*
@@ -66,22 +64,19 @@ Route::get('/create_staff', function () {
 Route::resources([
 'patients'=> PatientController::class,
 'consultants' => ConsultantController::class,
-
 'tarifs' => TarifController::class,
 'payement_modes' => PayementController::class,
 'consultations' => ConsultationController::class,
 'staffs' => StaffController::class,
 'events'=> EventController::class,
 'face_to_faces' => Face_to_faceController::class,
-/*
 'days' => DayController::class,
 'images' => ImageController::class,
 'addresses' => AddresseController::class,
 'on_lines' => On_lineController::class,
-'cancelation_politiques'=> CancelationPolitqueController::class,
+'cancelation_politiques'=> CancelationPolitiqueController::class,
 'schedules'=> sheduleController::class,
 'specialitys' => specialityController::class,
-*/
 ]);
 
 require __DIR__.'/auth.php';
