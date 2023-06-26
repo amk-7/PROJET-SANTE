@@ -9,7 +9,6 @@ use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\Face_to_faceController;
-
 use App\Http\Controllers\DayController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\AddresseController;
