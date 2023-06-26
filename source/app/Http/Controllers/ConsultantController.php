@@ -13,12 +13,12 @@ class ConsultantController extends Controller
     public function index()
     {
         $consultant = Consultant::all();
-        return view('consultant.index', compact('consultant'));
+        return view('consultants.index', compact('consultant'));
     }
 
     public function create()
     {
-        return view('staffs.create');
+        return view('consultants.create');
     }
 
     public function store(Request $request)
@@ -31,13 +31,13 @@ class ConsultantController extends Controller
 
         Consultant::create($validatedData);
 
-        return redirect()->route('consultant.index')->with('success', 'Consultant créé avec succès.');
+        return redirect()->route('consultants.index')->with('success', 'Consultant créé avec succès.');
     }
 
     public function edit($id)
     {
         $consultant = Consultant::findOrFail($id);
-        return view('consultant.edit', compact('consultant'));
+        return view('consultants.edit', compact('consultant'));
     }
 
     public function update(Request $request, $id)
@@ -51,7 +51,7 @@ class ConsultantController extends Controller
         $consultant = Consultant::findOrFail($id);
         $consultant->update($validatedData);
 
-        return redirect()->route('consultant.index')->with('success', 'Consultant mis à jour avec succès.');
+        return redirect()->route('consultants.index')->with('success', 'Consultant mis à jour avec succès.');
     }
 
     public function destroy($id)
@@ -59,6 +59,6 @@ class ConsultantController extends Controller
         $consultant = Consultant::findOrFail($id);
         $consultant->delete();
 
-        return redirect()->route('consultant.index')->with('success', 'Consultant supprimé avec succès.');
+        return redirect()->route('consultants.index')->with('success', 'Consultant supprimé avec succès.');
     }
 }
