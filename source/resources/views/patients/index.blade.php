@@ -1,106 +1,66 @@
-@extends('layouts.base_dashbord')
-@section('content')
-    <style>
-
-        .image {
-            width: 15px;
-            height: 15px;
-        }
-
-        .i1 {
-            background: green;
-        }
-
-        tr:nth-child(odd) {
-            background: #eee;
-        }
-
-        tr:nth-child(even) {
-            background: #ddd;
-        }
-
-        tr:first-child {
-            background: #cba;
-            color: #6c757d;
-        }
-
-        tr + tr:hover {
-            background: #bbb;
-            color: white;
-        }
-
-        tr + tr td:hover, tr + tr th:hover {
-            background: #777;
-        }
-
-        h2 {
-            text-align: center;
-        }
-
-        .main-content {
-            margin: auto;
-        }
-
-        table {
-            font-size: 15px;
-            text-align: center;
-        }
-
-
-    </style>
-
-    <div class="container">
-        <div class="col-10 main-content p-4">
-            <h2>Liste des patients</h2>
-            <table class="table">
-                <!-- thead-->
-                <tr>
-                    <th scope="col">NOM</th>
-                    <th cope="col">PRÉNOM</th>
-                    <th cope="col">MAIL</th>
-                    <th cope="col">CONTACT</th>
-                    <th cope="col">CONSULTER</th>
-                    <th cope="col">EDITER</th>
-                    <th cope="col">SUPPRIMER</th>
-                </tr>
-
-                <!--thead -->
-                <!-- tbody-->
-                <tr>
-                    <td>AZANLEKOR</td>
-                    <td>Ayele Esmeralda</td>
-                    <td>esmeralda@gmail.com</td>
-                    <td>12121212</td>
-                    <td><a href="/show_patient"><img class="image i1" src="{{asset('images/plus.png')}}" alt=""></a>
-                    </td>
-                    <td><a href="/create_patient"><img class="image" src="{{asset('images/pen.png')}}" alt=""></a></td>
-                    <td><a href="#"><img class="image" src="{{asset('images/trash.png')}}" alt=""></a></td>
-                </tr>
-                <tr>
-                    <td>AFANGBOME</td>
-                    <td>Dominique</td>
-                    <td>mail1afangbonedom@gmail.com</td>
-                    <td>88888888</td>
-                    <td><a href="/show_patient"><img class="image i1" src="{{asset('images/plus.png')}}" alt=""></a>
-                    </td>
-                    <td><a href="/create_patient"><img class="image" src="{{asset('images/pen.png')}}" alt=""></a></td>
-                    <td><a href="#"><img class="image" src="{{asset('images/trash.png')}}" alt=""></a></td>
-                </tr>
-                <tr>
-                    <td>AKAKPO</td>
-                    <td>Bernard</td>
-                    <td>bernard@gmail.com</td>
-                    <td>11111111</td>
-                    <td><a href="/show_patient"><img class="image i1" src="{{asset('images/plus.png')}}" alt=""></a>
-                    </td>
-                    <td><a href="/create_patient"><img class="image" src="{{asset('images/pen.png')}}" alt=""></a></td>
-                    <td><a href="#"><img class="image" src="{{asset('images/trash.png')}}" alt=""></a></td>
-                </tr>
-                <!--tbody -->
-
+@extends('layouts.base')
+@section('content')    <div class="block block-rounded">
+        <div class="block-header">
+            <div id="export-btn">
+                <a href="" class="btn btn-outline-primary">
+                    <i class="fa fa-2x fa-file-export"></i> Exporter
+                </a>
+            </div>
+            <a href="" class="btn btn-outline-primary">
+                <i class="fas fa-plus"></i> Ajout
+            </a>
+        </div>
+        <div class="block-content block-content-full">
+            <div class="pdf-preview">
+                
+            </div>
+            <table class="table table-bordered table-striped table-vcenter js-dataTable-full-pagination" id="export-table">
+                <thead>
+                    <tr>
+                        <th class="text-center" style="width: 80px;">Id</th>
+                        <th class="d-none d-sm-table-cell text-center" >Nom</th>
+                        <th class="d-none d-sm-table-cell text-center" >Prénom</th>
+                        <th class="d-none d-sm-table-cell text-center" style="width: 30%;">Contact</th>
+                        <th class="d-none d-sm-table-cell text-center" >Pays</th>
+                        <th class="d-none d-sm-table-cell text-center" >Ville</th>
+                        <th style="width: 15%;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                    <tr>
+                        <td class="text-center font-size-sm"> </td>
+                        <td class="text-center font-size-sm text-uppercase">  </td>
+                        <td class="d-none d-sm-table-cell text-center text-capitalize"> </td>
+                        <td class="text-center d-none d-sm-table-cell font-size-sm"> </td>
+                        <td class="text-center d-none d-sm-table-cell font-size-sm"> </td>
+                        <td class="text-center d-none d-sm-table-cell font-size-sm"> </td>
+                        <td class="text-center"> 
+                           
+                            <form action="" method="GET">
+                                <button type="submit" class="btn btn-sm btn-warning">
+                                    <span><i class="far fa-edit fa-lg"></i></span>
+                                </button> 
+                            </form>                                      
+                            <form action="" method="POST">
+                             
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                    <span><i class="fa fa-fw fa-times mr-1"></i></span>
+                                </button> 
+                            </form>                                 
+                        </td> 
+                    </tr>
+               
+                        <div class="my-auto">
+                            <h3 class="text-center">Aucun client.</h3>
+                        </div>
+                 
+    
+                </tbody>
             </table>
-
         </div>
     </div>
+@stop
 
-@endsection
+
+
