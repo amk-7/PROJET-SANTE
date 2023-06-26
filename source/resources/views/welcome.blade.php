@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('layouts.base_dashbord')
 @section('content')
     kfkfkf
 @endsection
