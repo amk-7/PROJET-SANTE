@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Evenement;
+use App\Models\Jour;
+use App\Models\Image;
 
 class EventController extends Controller
 {
@@ -13,7 +16,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $evenements = Evenement::all();
+        return view('evenements.idex',compact('evenements'));
     }
 
     /**
@@ -23,7 +27,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('evenements.create');
     }
 
     /**
@@ -34,7 +38,9 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $evenement = Evenement::create($request->all());
+    
+        return redirect()->route('evenements.index');
     }
 
     /**
@@ -43,9 +49,9 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Evenement $evenement)
     {
-        //
+        return view('evenements.show',compact('evenement'));
     }
 
     /**
@@ -54,9 +60,9 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Evenement $evenement)
     {
-        //
+        return view('evenements.edit',compact('evenement'));
     }
 
     /**
@@ -66,9 +72,12 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Evenement $evenement)
     {
-        //
+        
+        $evenement->update($request->all());
+
+        return redirect()->route('evenements.index');
     }
 
     /**
@@ -77,8 +86,9 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Evenement $evenement)
     {
-        //
+        $evenement->delete();
+        return redirect()->route('evenements.index');
     }
 }
