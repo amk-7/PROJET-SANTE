@@ -128,6 +128,13 @@
       <excludeFolder url="file://$MODULE_DIR$/source/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/source/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/source/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/firebase/php-jwt" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/google/apiclient" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/google/apiclient-services" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/google/auth" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/paragonie/constant_time_encoding" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/paragonie/random_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/source/vendor/phpseclib/phpseclib" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
