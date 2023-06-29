@@ -12,7 +12,8 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "mercuryseries/laravel-helpers": "^1.0"
+        "mercuryseries/laravel-helpers": "^1.0",
+        "google/apiclient": "^2.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.13",

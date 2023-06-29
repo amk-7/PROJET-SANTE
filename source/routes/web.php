@@ -16,7 +16,11 @@ use App\Http\Controllers\On_lineController;
 use App\Http\Controllers\CancelationPolitiqueController;
 use App\Http\Controllers\SheduleController;
 use App\Http\Controllers\SpecialityController;
+
 use App\Http\Controllers\UniteController;
+
+use App\Http\Controllers\MeetController;
+
 
 
 /*
@@ -30,6 +34,13 @@ use App\Http\Controllers\UniteController;
 |
 */
 
+
+Route::get('meet/create', [MeetController::class, 'createMeeting'])->name('meet.create');
+Route::get('meet/callback', [MeetController::class, 'callback'])->name('meet.callback');
+Route::get('meet', [MeetController::class, 'showCreateForm'])->name('meet.form');
+Route::post('meet', [MeetController::class, 'storeMeeting'])->name('meet.store');
+Route::get('meet/{eventId}', [MeetController::class, 'showMeeting'])->name('meet.show');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -37,18 +48,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
-/*les routeurs concernants un patient: fayssol */
-Route::get('/create_patient', function () {
-    return view('patients.create');
-});
 
-Route::get('/index_patient', function () {
-    return view('patients.index');
-});
 
-Route::get('/show_patient', function () {
-    return view('patients.show');
-});
 
 
 /**fin */

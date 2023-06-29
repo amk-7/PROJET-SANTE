@@ -1,63 +1,92 @@
-@extends('layouts.base')
-@section('content')    <div class="block block-rounded">
-        <div class="block-header">
-            <div id="export-btn">
-                <a href="" class="btn btn-outline-primary">
-                    <i class="fa fa-2x fa-file-export"></i> Exporter
-                </a>
-            </div>
-            <a href="" class="btn btn-outline-primary">
-                <i class="fas fa-plus"></i> Ajout
+@extends('layouts.base_dashbord')
+@section('content')
+    <h4 class="fw-bold py-3 mb-4">
+        List des patients
+    </h4>
+    <div class="card ">
+        <div class="card-header d-flex items-center justify-content-between">
+            <h5 class="">List des patients</h5>
+            <a href="">
+                <button type="button" class="btn btn-primary">Ajouter</button>
             </a>
         </div>
-        <div class="block-content block-content-full">
-            <div class="pdf-preview">
-                
+        <div class="card-body">
+            <div class="table-responsive text-nowrap">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Contact</th>
+                        <th>Pays</th>
+                        <th>Ville</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong>
+                            </td>
+                            <td>Albert Cook</td>
+                            <td>
+                                <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                    <li
+                                        data-bs-toggle="tooltip"
+                                        data-popup="tooltip-custom"
+                                        data-bs-placement="top"
+                                        class="avatar avatar-xs pull-up"
+                                        title="Lilian Fuller"
+                                    >
+                                        <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
+                                    </li>
+                                    <li
+                                        data-bs-toggle="tooltip"
+                                        data-popup="tooltip-custom"
+                                        data-bs-placement="top"
+                                        class="avatar avatar-xs pull-up"
+                                        title="Sophia Wilkerson"
+                                    >
+                                        <img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
+                                    </li>
+                                    <li
+                                        data-bs-toggle="tooltip"
+                                        data-popup="tooltip-custom"
+                                        data-bs-placement="top"
+                                        class="avatar avatar-xs pull-up"
+                                        title="Christina Parker"
+                                    >
+                                        <img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
+                                    </li>
+                                </ul>
+                            </td>
+                            <td><span class="badge bg-label-primary me-1">Active</span></td>
+                            <td><span class="badge bg-label-primary me-1">Active</span></td>
+                            <td><span class="badge bg-label-primary me-1">Active</span></td>
+                            <td>
+                                <div class="dropdown">
+                                    <button
+                                        type="button"
+                                        class="btn p-0 dropdown-toggle hide-arrow"
+                                        data-bs-toggle="dropdown"
+                                    >
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="javascript:void(0);"
+                                        ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                                        >
+                                        <a class="dropdown-item" href="javascript:void(0);"
+                                        ><i class="bx bx-trash me-1"></i> Delete</a
+                                        >
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <table class="table table-bordered table-striped table-vcenter js-dataTable-full-pagination" id="export-table">
-                <thead>
-                    <tr>
-                        <th class="text-center" style="width: 80px;">Id</th>
-                        <th class="d-none d-sm-table-cell text-center" >Nom</th>
-                        <th class="d-none d-sm-table-cell text-center" >Prénom</th>
-                        <th class="d-none d-sm-table-cell text-center" style="width: 30%;">Contact</th>
-                        <th class="d-none d-sm-table-cell text-center" >Pays</th>
-                        <th class="d-none d-sm-table-cell text-center" >Ville</th>
-                        <th style="width: 15%;">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                   
-                    <tr>
-                        <td class="text-center font-size-sm"> </td>
-                        <td class="text-center font-size-sm text-uppercase">  </td>
-                        <td class="d-none d-sm-table-cell text-center text-capitalize"> </td>
-                        <td class="text-center d-none d-sm-table-cell font-size-sm"> </td>
-                        <td class="text-center d-none d-sm-table-cell font-size-sm"> </td>
-                        <td class="text-center d-none d-sm-table-cell font-size-sm"> </td>
-                        <td class="text-center"> 
-                           
-                            <form action="" method="GET">
-                                <button type="submit" class="btn btn-sm btn-warning">
-                                    <span><i class="far fa-edit fa-lg"></i></span>
-                                </button> 
-                            </form>                                      
-                            <form action="" method="POST">
-                             
-                                <button type="submit" class="btn btn-sm btn-danger">
-                                    <span><i class="fa fa-fw fa-times mr-1"></i></span>
-                                </button> 
-                            </form>                                 
-                        </td> 
-                    </tr>
-               
-                        <div class="my-auto">
-                            <h3 class="text-center">Aucun client.</h3>
-                        </div>
-                 
-    
-                </tbody>
-            </table>
         </div>
     </div>
 @stop
