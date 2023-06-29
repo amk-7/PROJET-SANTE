@@ -16,7 +16,11 @@ use App\Http\Controllers\On_lineController;
 use App\Http\Controllers\CancelationPolitiqueController;
 use App\Http\Controllers\SheduleController;
 use App\Http\Controllers\SpecialityController;
+
+use App\Http\Controllers\UniteController;
+
 use App\Http\Controllers\MeetController;
+
 
 
 /*
@@ -74,6 +78,7 @@ Route::resources([
 'cancelation_politiques'=> CancelationPolitiqueController::class,
 'schedules'=> sheduleController::class,
 'specialitys' => specialityController::class,
+'unite' => uniteController::class,
 ]);
 
 require __DIR__.'/auth.php';

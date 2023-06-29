@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Specialite;
+use App\Models\Unite;
 use Illuminate\Http\Request;
 
-class SpecialityController extends Controller
+class UniteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,9 @@ class SpecialityController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { $specialiy = Specialite::all();
-        return view('specialite.index', compact('specialite'));
+    {
+        $unite = Unite::all();
+        return view('unite.index', compact('unite'));
     }
 
     /**
@@ -24,8 +25,7 @@ class SpecialityController extends Controller
      */
     public function create()
     {
-        return view('specialite.create');
-
+        return view('unite.create');
     }
 
     /**
@@ -36,20 +36,15 @@ class SpecialityController extends Controller
      */
     public function store(Request $request)
     {
-
         $validateData = $request->validate([
-            'nomSpecialite' => 'required',
-            'typeSpecialite' => 'required',
-
+            'libelle' => 'required',
 
         ]);
 
 
-        Specialite::create($validateData);
+        Unite::create($validateData);
 
-        return redirect()->route('specialite.index')->with('success', 'specialite créé avec succès.');
-
-
+        return redirect()->route('unite.index')->with('success', 'unite créé avec succès.');
     }
 
     /**
@@ -71,8 +66,10 @@ class SpecialityController extends Controller
      */
     public function edit($id)
     {
-        $unite = Specialite::findOrFail($id);
-        return view('specialite.edit', compact('specialite'));
+
+
+        $unite = Unite::findOrFail($id);
+        return view('unite.edit', compact('unite'));
     }
 
     /**
@@ -84,19 +81,20 @@ class SpecialityController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-
-
         $validateData = $request->validate([
-            'nomSpecialite' => 'required',
-            'typeSpecialite' => 'required',
-
+            'libelle' => 'required',
 
         ]);
-        $specialite = Specialite::findOrFail($id);
-        $specialite->update($validateData);
 
-        return redirect()->route('specialite.index')->with('success', 'specialite mis à jour avec succès.');
+        $unite = Unite::findOrFail($id);
+        $unite->update($validateData);
+
+        return redirect()->route('unite.index')->with('success', 'unite mis à jour avec succès.');
+
+
+
+
+
     }
 
     /**
@@ -107,9 +105,10 @@ class SpecialityController extends Controller
      */
     public function destroy($id)
     {
-        $specialite = Specialite::findOrFail($id);
-        $specialite->delete();
+        $unite = Unite::findOrFail($id);
+        $unite->delete();
 
-        return redirect()->route('specialite.index')->with('success', 'specialite supprimé avec succès.');
+        return redirect()->route('unite.index')->with('success', 'unite supprimé avec succès.');
     }
+
 }
