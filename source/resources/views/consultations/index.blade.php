@@ -1,12 +1,12 @@
 @extends('layouts.base_dashbord')
 @section('content')
     <h4 class="fw-bold py-3 mb-4">
-        Liste des patients
+        Liste des consultations
     </h4>
     <div class="card ">
         <div class="card-header d-flex items-center justify-content-between">
-            <h5 class="">List des patients</h5>
-            <a href="{{route('patients.create')}}">
+            <h5 class="">List des consultations</h5>
+            <a href="{{route('consultations.create')}}">
                 <button type="button" class="btn btn-primary">Ajouter</button>
             </a>
         </div>
@@ -16,11 +16,14 @@
                     <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Nom</th>
-                        <th>Prénom</th>
-                        <th>Contact</th>
-                        <th>Pays</th>
-                        <th>Ville</th>
+                        <th>Client</th>
+                        <th>Consultant</th>
+                        <th>Date</th>
+                        <th>Heure Debut</th>
+                        <th>Heure Fin</th>
+                        <th>Etat</th>
+                        <th>Fait</th>
+                        <th>Rencontre</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -65,7 +68,12 @@
                             <td><span class="badge bg-label-primary me-1">Active</span></td>
                             <td><span class="badge bg-label-primary me-1">Active</span></td>
                             <td>
-                                <div class="dropdown">
+                               en cours
+                            </td>
+                            <td>jfdhhbggbf</td>
+                            <td>fhdfrejfn66</td>
+                            <td>
+                            <div class="dropdown">
                                     <button
                                         type="button"
                                         class="btn p-0 dropdown-toggle hide-arrow"

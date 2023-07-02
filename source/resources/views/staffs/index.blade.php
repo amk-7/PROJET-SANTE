@@ -1,12 +1,12 @@
 @extends('layouts.base_dashbord')
 @section('content')
     <h4 class="fw-bold py-3 mb-4">
-        Liste des patients
+        Liste des Employés
     </h4>
     <div class="card ">
         <div class="card-header d-flex items-center justify-content-between">
             <h5 class="">List des patients</h5>
-            <a href="{{route('patients.create')}}">
+            <a href="{{route('staffs.create')}}">
                 <button type="button" class="btn btn-primary">Ajouter</button>
             </a>
         </div>

@@ -13,7 +13,7 @@ class ConsultationController extends Controller
      */
     public function index()
     {
-        //
+        return view('consultations.index');
     }
 
     /**
@@ -24,6 +24,7 @@ class ConsultationController extends Controller
     public function create()
     {
         //
+        return view('consultations.create');
     }
 
     /**

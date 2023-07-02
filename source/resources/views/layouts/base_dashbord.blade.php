@@ -124,12 +124,12 @@
                 <li class="menu-item">
                     <ul class="menu-item">
                         <li class="menu-item">
-                            <a href="" class="menu-link">
+                            <a href="{{route('patients.index')}}" class="menu-link">
                                 <div data-i18n="Account">Patients</div>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="" class="menu-link">
+                            <a href="{{route('consultants.index')}}" class="menu-link">
                                 <div data-i18n="Notifications">Consultants</div>
                             </a>
                         </li>
@@ -141,7 +141,7 @@
                 <li class="menu-item">
                     <ul class="menu-item">
                         <li class="menu-item">
-                            <a href="" class="menu-link">
+                            <a href="{{route('consultations.index')}}" class="menu-link">
                                 <div data-i18n="Account">Consultaions</div>
                             </a>
                         </li>
@@ -158,10 +158,10 @@
                     </ul>
                 </li>
                 <li class="menu-header small text-uppercase">
-                    <span class="menu-header-text">Evénements</span>
+                        <span class="menu-header-text">Evènements</span>
                 </li>
                 <li class="menu-item">
-                    <a href="" class="menu-link">
+                    <a href="{{route('events.index')}}" class="menu-link">
                         <div data-i18n="Account">List</div>
                     </a>
                 </li>
@@ -169,8 +169,8 @@
                     <span class="menu-header-text">Applications</span>
                 </li>
                 <li class="menu-item">
-                    <a href="" class="menu-link">
-                        <div data-i18n="Account">Employe</div>
+                    <a href="{{route('staffs.index')}}" class="menu-link">
+                        <div data-i18n="Account">Employés</div>
                     </a>
                 </li>
                 <li class="menu-item">
