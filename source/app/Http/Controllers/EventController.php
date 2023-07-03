@@ -16,8 +16,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        $evenements = Evenement::all();
-        return view('evenements.index',compact('evenements'));
+        $events = Evenement::all();
+        return view('events.index',compact('events'));
     }
 
     /**
@@ -27,7 +27,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('evenements.create');
+        return view('events.create');
     }
 
     /**
@@ -39,7 +39,7 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $evenement = Evenement::create($request->all());
-    
+
         return redirect()->route('evenements.index');
     }
 
@@ -74,7 +74,7 @@ class EventController extends Controller
      */
     public function update(Request $request, Evenement $evenement)
     {
-        
+
         $evenement->update($request->all());
 
         return redirect()->route('evenements.index');

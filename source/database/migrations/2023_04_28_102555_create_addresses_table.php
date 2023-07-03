@@ -18,9 +18,9 @@ class CreateAddressesTable extends Migration
             $table->string("country");
             $table->string("town");
             $table->string("neighborhood");
-            $table->string("longitude");
-            $table->string("latitude");
-            $table->string("orientation");
+            $table->string("longitude")->nullable();
+            $table->string("latitude")->nullable();
+            $table->string("orientation")->nullable();
             $table->timestamps();
         });
     }
