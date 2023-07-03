@@ -1,0 +1,12 @@
+Réaliser les cas d'utilisations suivants :
+
+S'inscrire : fayssol
+Postuler pour être consultant : fayssol
+consulter la liste des candidats au poste de consultant : baki
+Accepter ou rejeter une demande d'un candidat au poste de consultant : baki
+consulter la liste des consltants : baki
+Afficher la liste des consultations déjà apprové : hafiz
+Afficher la liste des consultations en étude : hafiz
+faire une demande de consultation : hafiz
+Définir mes horraire (consultant) : malik
+Affecter la demande de consultation d'un client donnée à un consultant donnée : malik

@@ -378,7 +378,7 @@
 <script src="../assets/js/dashboards-analytics.js"></script>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-
+@yield('script')
 
 </body>
 </html>
