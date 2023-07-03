@@ -33,7 +33,6 @@
                             @include('components.form_components.field', [ 'placeholder' => 'Confirmer','type'=>'password'  ])
                         </div>
                     </div>
-                   
                     <div class="col-2 mt-5 w-100">
                         <button class="button btn btn-primary w-100" type="submit">Enregistrer</button>
                     </div>
