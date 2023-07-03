@@ -1,0 +1,8 @@
+Réaliser les cas d'utilisations suivants :
+
+S'inscrire
+Postuler pour être consultant
+consulter la liste des candidats au poste de consultant
+Accepter ou rejeter une demande d'un candidat au poste de consultant
+consulter la liste des consltants
+Définir mes horraire (consultant)
