@@ -15,13 +15,17 @@ class CreateDaysTable extends Migration
     {
         Schema::create('days', function (Blueprint $table) {
             $table->bigIncrements('day_id');
+            $table->date('date');
             $table->timeTz('start_time');
             $table->timeTz('end_time');
             $table->string('link')->nullable();
-            $table->bigInteger('address_id')->nullable();
+            $table->string("country");
+            $table->string("town");
+            $table->string("address");
+            $table->string("longitude")->nullable();
+            $table->string("latitude")->nullable();
             $table->bigInteger('event_id');
             $table->timestamps();
-            $table->foreign('address_id')->references('address_id')->on('addresses')->nullOnDelete();
             $table->foreign('event_id')->references('event_id')->on('events')->onDelete('cascade')->onUpdate('cascade');
         });
     }

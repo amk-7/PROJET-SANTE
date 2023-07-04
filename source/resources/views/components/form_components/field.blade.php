@@ -8,7 +8,7 @@
     $class = $class ?? "col-12"
 @endphp
 <div class="{{ $class }} form-group mb-3">
-    <label for="{{ $name }}">{{ $name }}</label>
+    <label for="{{ $name }}">{{ $label }}</label>
     <input
         type="{{$type}}"
         class="form-control @error($name) is-invalid @enderror"

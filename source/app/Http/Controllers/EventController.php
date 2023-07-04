@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Personnel;
 use Illuminate\Http\Request;
 use App\Models\Evenement;
 use App\Models\Jour;
@@ -38,9 +39,42 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $evenement = Evenement::create($request->all());
+        $request['staff_id'] = Personnel::all()->first()->staff_id;
+        /*
+        dd($request->type);
+        dd($request->all());
+        */
 
-        return redirect()->route('evenements.index');
+        $images = $request->file('images');
+        if ($images){
+            $chemin_image = strtolower($request->title).'.'.$images->extension();
+            $images->storeAs('public/images/evennements', $chemin_image);
+        } else {
+            $chemin_image = "default_event_illustration.png";
+        }
+
+        Image::create([
+            'image_path' => $chemin_image,
+            'event_id' => $evenement->event_id,
+        ]);
+
+        $evenement = Evenement::create($request->all());
+        for ($i=0; $i<count($request->date); $i++){
+            Jour::create([
+                'date' => $request->date[$i],
+                'start_time' => $request->start_time[$i],
+                'end_time' => $request->end_time[$i],
+                'link' => $request->link[$i],
+                'date' => $request->country[$i],
+                'town' => $request->town[$i],
+                'address' => $request->address[$i],
+                'longitude' => $request->longitude[$i],
+                'latitude' => $request->latitude[$i],
+                'event_id' => $evenement->event_id,
+            ]);
+        }
+
+        return redirect()->route('events.index');
     }
 
     /**

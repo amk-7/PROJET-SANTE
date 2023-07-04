@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use App\Models\Admin;
+use App\Models\Personnel;
 use App\Models\MethodePayement;
 
 class PolitiqueAnnulation extends Model
@@ -16,7 +16,7 @@ class PolitiqueAnnulation extends Model
     protected $fillable = ['payement_mode_id','administrator','number','percentage'];
 
     public function admin():BelongsTo{
-        return $this->belongsTo(Admin::class);
+        return $this->belongsTo(Personnel::class);
     }
 
     public function methodePayement():BelongsTo{

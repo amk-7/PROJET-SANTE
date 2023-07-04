@@ -18,7 +18,7 @@ class CreateEventsTable extends Migration
             $table->bigInteger('staff_id');
             $table->string('title');
             $table->text('description');
-            $table->enum('type', [0, 1]);
+            $table->enum('type', [0, 1])->default(0);
             $table->timestamps();
             $table->foreign('staff_id')->references('staff_id')->on('staffs')->onDelete('cascade')->onUpdate('cascade');
         });
