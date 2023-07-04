@@ -8,7 +8,7 @@ use App\Models\Jour;
 use App\Models\Image;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use App\Models\Admin;
+use App\Models\Personnel;
 
 class Evenement extends Model
 {
@@ -26,6 +26,6 @@ class Evenement extends Model
     }
 
     public function admin():BelongsTo{
-        return $this->belongsTo(Admin::class);
+        return $this->belongsTo(Personnel::class);
     }
 }

@@ -8,23 +8,23 @@
         <h5 class="">Enregister un nouveau évènement</h5>
     </div>
     <div class="card-body">
-        <form action="{{ route('events.store')  }}" method="post">
+        <form action="{{ route('events.store')  }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row col-md-12 col-12 form-group mb-3">
-                @include('components.form_components.field', ['name' => 'title', 'placeholder' => 'Saisir le titre' ])
-                @include('components.form_components.text_field', ['name' => 'description', 'placeholder' => 'Saisir une description' ])
+                @include('components.form_components.field', ['name' => 'title', 'label' => 'Titre', 'placeholder' => 'Saisir le titre' ])
+                @include('components.form_components.text_field', ['name' => 'description', 'label' => 'Description', 'placeholder' => 'Saisir une description' ])
                 <div class="col-md-12">
-                    @include('components.form_components.field', ['name' => 'Images', 'placeholder' => 'Saisir une description', 'type' => 'file', 'multiple' => 'multiple' ])
+                    @include('components.form_components.field', ['name' => 'images', 'label' => 'Affiche', 'placeholder' => 'Saisir une description', 'type' => 'file', 'multiple' => '' ])
                 </div>
                 <div class="col-md-12 row">
-                    @include('components.form_components.radio_field', ['name' => 'event_type', 'type' => 'radio', 'data' => ['En ligne', 'Présentiel'], 'class' => 'col-md-4' ])
+                    @include('components.form_components.radio_field', ['name' => 'type', 'type' => 'radio', 'data' => ['En ligne', 'Présentiel'], 'class' => 'col-md-4' ])
                 </div>
                 <div class="" id="on_line" hidden>
                     <div class="col-md-12 row on_line_row">
-                        @include('components.form_components.field', ['name' => 'Date', 'placeholder' => 'Saisir une description', 'type' => 'date', 'class' => 'col-md-4' ])
-                        @include('components.form_components.field', ['name' => 'time1', 'placeholder' => '', 'type' => 'time', 'class' => 'col-md-2' ])
-                        @include('components.form_components.field', ['name' => 'time2', 'placeholder' => '', 'type' => 'time', 'class' => 'col-md-2' ])
-                        @include('components.form_components.field', ['name' => 'link', 'placeholder' => 'Saisir le lien', 'type' => 'text', 'class' => 'col-md-4' ])
+                        @include('components.form_components.field', ['name' => 'on_line_date[]', 'label' => 'Date', 'placeholder' => 'Saisir une description', 'type' => 'date', 'class' => 'col-md-4' ])
+                        @include('components.form_components.field', ['name' => 'on_line_start_time[]', 'label' => 'Début', 'placeholder' => '', 'type' => 'time', 'class' => 'col-md-2' ])
+                        @include('components.form_components.field', ['name' => 'on_line_end_time[]', 'label' => 'Fin','placeholder' => '', 'type' => 'time', 'class' => 'col-md-2' ])
+                        @include('components.form_components.field', ['name' => 'on_line_link[]', 'label' => 'Lien', 'placeholder' => 'Saisir le lien', 'type' => 'text', 'class' => 'col-md-4' ])
                         <div class="d-flex flex-row-reverse">
                             <input type="button" class="btn btn-danger m-2 delete_row col-md-1" value="x">
                         </div>
@@ -32,12 +32,12 @@
                 </div>
                 <div id="face_to_face" hidden>
                     <div class="col-md-12 row face_to_face_row">
-                        @include('components.form_components.field', ['name' => 'Date', 'placeholder' => 'Saisir une description', 'type' => 'date', 'class' => 'col-md-4' ])
-                        @include('components.form_components.field', ['name' => 'time1', 'placeholder' => '', 'type' => 'time', 'class' => 'col-md-4' ])
-                        @include('components.form_components.field', ['name' => 'time2', 'placeholder' => '', 'type' => 'time', 'class' => 'col-md-4' ])
-                        @include('components.form_components.field', ['name' => 'country', 'placeholder' => 'Saisir le pays', 'type' => 'text', 'class' => 'col-md-4' ])
-                        @include('components.form_components.field', ['name' => 'town', 'placeholder' => 'Saisir la ville', 'type' => 'text', 'class' => 'col-md-4' ])
-                        @include('components.form_components.field', ['name' => 'address', 'placeholder' => 'Saisir le quartier', 'text' => 'time', 'class' => 'col-md-4' ])
+                        @include('components.form_components.field', ['name' => 'date[]', 'label' => 'Date', 'placeholder' => 'Saisir une description', 'type' => 'date', 'class' => 'col-md-4' ])
+                        @include('components.form_components.field', ['name' => 'start_time[]', 'label' => 'Début', 'placeholder' => '', 'type' => 'time', 'class' => 'col-md-4' ])
+                        @include('components.form_components.field', ['name' => 'end_time[]', 'label' => 'Fin','placeholder' => '', 'type' => 'time', 'class' => 'col-md-4' ])
+                        @include('components.form_components.field', ['name' => 'country[]', 'label' => 'Pays', 'placeholder' => 'Saisir le pays', 'type' => 'text', 'class' => 'col-md-4' ])
+                        @include('components.form_components.field', ['name' => 'town[]', 'label' => 'Ville', 'placeholder' => 'Saisir la ville', 'type' => 'text', 'class' => 'col-md-4' ])
+                        @include('components.form_components.field', ['name' => 'address[]', 'label' => 'Adresse', 'placeholder' => 'Saisir le quartier', 'text' => 'time', 'class' => 'col-md-4' ])
                         <div class="d-flex flex-row-reverse">
                             <input type="button" class="btn btn-danger m-2 delete_row col-md-1" value="x">
                         </div>
@@ -58,13 +58,13 @@
         $('#on_line')[0].hidden=true;
         $('#face_to_face')[0].hidden=true;
 
-        $('#event_type_0').on('change', function (){
+        $('#type_0').on('change', function (){
             $('#on_line')[0].hidden=false;
             $('#face_to_face')[0].hidden=true;
             $('.face_to_face_row').slice(1).remove();
         });
 
-        $('#event_type_1').on('change', function (){
+        $('#type_1').on('change', function (){
             $('#on_line')[0].hidden=true;
             $('#face_to_face')[0].hidden=false;
             $('.on_line_row').slice(1).remove();

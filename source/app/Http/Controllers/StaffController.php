@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
+use App\Models\Personnel;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -16,7 +16,7 @@ class StaffController extends Controller
     public function index()
     {
         //
-        $list_admin =  Admin::all();
+        $list_admin =  Personnel::all();
         return view('staffs.index', ['list_admin' => $list_admin]);
     }
 
@@ -60,7 +60,7 @@ class StaffController extends Controller
             'email_verified_at' => $request->email_verified_at,
             'password' => $request->password
         ]);
-        Admin::create([
+        Personnel::create([
             'user_id' => $u->user_id,
         ]);
     }
@@ -73,7 +73,7 @@ class StaffController extends Controller
      */
     public function show($id)
     {
-        $admin = Admin::find($id);
+        $admin = Personnel::find($id);
         return view("staffs.show", ['admin' => $admin]);
     }
 
@@ -85,7 +85,7 @@ class StaffController extends Controller
      */
     public function edit($id)
     {
-        $admin = Admin::find($id);
+        $admin = Personnel::find($id);
         return view("staffs.show", ['admin' => $admin]);
     }
 
@@ -98,7 +98,7 @@ class StaffController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $admin = Admin::find($id);
+        $admin = Personnel::find($id);
         $admin->update([
             'profile_file_path' => $request->profile_file_path,
             'lastname' => $request->lastname,
@@ -119,7 +119,7 @@ class StaffController extends Controller
      */
     public function destroy($id)
     {
-        $admin = Admin::find($id);
+        $admin = Personnel::find($id);
         $admin->delete();
     }
 }

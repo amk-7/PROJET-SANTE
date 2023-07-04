@@ -3,90 +3,32 @@
     <h4 class="fw-bold py-3 mb-4">
         Liste des évènements
     </h4>
-    <div class="card ">
+    <div class="">
         <div class="card-header d-flex items-center justify-content-between">
             <h5 class="">List des évènements</h5>
             <a href="{{route('events.create')}}">
                 <button type="button" class="btn btn-primary">Ajouter</button>
             </a>
         </div>
-        <div class="card-body">
-            <div class="table-responsive text-nowrap">
-                <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Titre</th>
-                        <th>Description</th>
-                        <th>Adresse</th>
-                        <th>Employé</th>
-                        <th>Ville</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong>
-                            </td>
-                            <td>Albert Cook</td>
-                            <td>
-                                <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                                    <li
-                                        data-bs-toggle="tooltip"
-                                        data-popup="tooltip-custom"
-                                        data-bs-placement="top"
-                                        class="avatar avatar-xs pull-up"
-                                        title="Lilian Fuller"
-                                    >
-                                        <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                                    </li>
-                                    <li
-                                        data-bs-toggle="tooltip"
-                                        data-popup="tooltip-custom"
-                                        data-bs-placement="top"
-                                        class="avatar avatar-xs pull-up"
-                                        title="Sophia Wilkerson"
-                                    >
-                                        <img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                                    </li>
-                                    <li
-                                        data-bs-toggle="tooltip"
-                                        data-popup="tooltip-custom"
-                                        data-bs-placement="top"
-                                        class="avatar avatar-xs pull-up"
-                                        title="Christina Parker"
-                                    >
-                                        <img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                                    </li>
-                                </ul>
-                            </td>
-                            <td><span class="badge bg-label-primary me-1">Active</span></td>
-                            <td><span class="badge bg-label-primary me-1">Active</span></td>
-                            <td><span class="badge bg-label-primary me-1">Active</span></td>
-                            <td>
-                                <div class="dropdown">
-                                    <button
-                                        type="button"
-                                        class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown"
-                                    >
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"
-                                        ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                                        >
-                                        <a class="dropdown-item" href="javascript:void(0);"
-                                        ><i class="bx bx-trash me-1"></i> Delete</a
-                                        >
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="card-body bg-danger row">
+            @foreach($events as $event)
+                <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $event->title  }}</h5>
+                            <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                            <img
+                                class="img-fluid d-flex mx-auto my-4"
+                                src="../assets/img/elements/4.jpg"
+                                alt="Card image cap"
+                            />
+                            <p class="card-text">{{ $event->description  }}</p>
+                            <a href="javascript:void(0);" class="card-link">Card link</a>
+                            <a href="javascript:void(0);" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 @stop

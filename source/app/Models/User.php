@@ -2,15 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Patient;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-
-use App\Models\Patient;
-use App\Models\Admin;
+use App\Models\Personnel;
 
 
 
@@ -30,6 +29,8 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+
+    protected $primaryKey = 'user_id';
 
     /**
      * The attributes that should be hidden for serialization.
@@ -51,16 +52,16 @@ class User extends Authenticatable
     ];
 
 
-    public function consultant():HasOne{
-        return $this -> HasOne(consultant::class);
-
+    public function consultant():HasOne
+    {
+        return $this->HasOne(consultant::class);
+    }
 
     public function patient():HasOne{
         return $this->hasOne(Patient::class);
     }
 
-    public function admin():HasOne{
-        return $this->hasOne(Admin::class);
-
+    public function personnel():HasOne{
+        return $this->hasOne(Personnel::class);
     }
 }

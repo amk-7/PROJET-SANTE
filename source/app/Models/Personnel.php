@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\PolitiqueAnnulation;
 
-class Admin extends Model
+class Personnel extends Model
 {
     use HasFactory;
 
