@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\Patient;
+use App\Models\User;
 class PatientController extends Controller
 {
     public function index()
@@ -22,13 +24,16 @@ class PatientController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'nom' => 'required',
-            'prenom' => 'required',
-            'email' => 'required|email',
-        ]);
+        // $validatedData = $request->validate([
+        //     'nom' => 'required',
+        //     'prenom' => 'required',
+        //     'email' => 'required|email',
+        // ]);
 
-        Patient::create($validatedData);
+        $user = User::create($request->all());
+        Patient::create([
+            'user_id' => $user->user_id,
+        ]);    
 
         return redirect()->route('patients.index')->with('success', 'Patient créé avec succès.');
     }
@@ -55,8 +60,8 @@ class PatientController extends Controller
 
     public function destroy($id)
     {
-        $patient = Patient::findOrFail($id);
-        $patient->delete();
+        
+        $patient->user->delete();
 
         return redirect()->route('patients.index')->with('success', 'Patient supprimé avec succès.');
     }

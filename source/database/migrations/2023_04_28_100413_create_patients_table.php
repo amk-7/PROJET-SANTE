@@ -16,10 +16,10 @@ class CreatePatientsTable extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->bigIncrements('id_patients');
-            $table->text('health_problem_list');
-            $table->text('medical_history');
-            $table->text('allergy');
-            $table->text('medical_record_paths');
+            $table->string('health_problem_list')->nullable();
+            $table->string('medical_history')->nullable();
+            $table->string('allergy')->nullable();
+            $table->string('medical_record_paths')->nullable();
             $table->bigInteger('user_id');
             $table->timestamps();
             $table->softDeletes();
