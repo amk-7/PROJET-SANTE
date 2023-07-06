@@ -1,4 +1,4 @@
-@extends('users.create')
+@extends('users.create',['route_name_prefix'=>'consultants'])
 @section('child_content')
 <div class="row col-md-12" >
     <!--input type="url" name="url" placeholder="Your Site" data-form-field="url" class="form-control" value="" id="url-form5-1a"-->

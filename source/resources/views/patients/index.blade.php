@@ -1,4 +1,4 @@
-@extends('layouts.base_dashbord')
+@extends('layouts.base_dashboard')
 @section('content')
     <h4 class="fw-bold py-3 mb-4">
         Liste des patients
@@ -19,19 +19,20 @@
                         <th>Nom</th>
                         <th>Prénom</th>
                         <th>Contact</th>
-                        <th>Pays</th>
-                        <th>Ville</th>
+                        <th>Email</th>
+                        <th>Etat du Compte</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
+                        @forelse($patients as $patient)
                         <tr>
                             <td>
-                                <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong>
+                                <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong> {{$patient->user->user_id}}</strong>
                             </td>
-                            <td>Albert Cook</td>
+                            <td>{{$patient->user->lastname}}</td>
                             <td>
-                                <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                <!-- <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                                     <li
                                         data-bs-toggle="tooltip"
                                         data-popup="tooltip-custom"
@@ -59,11 +60,12 @@
                                     >
                                         <img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
                                     </li>
-                                </ul>
+                                </ul> -->
+                                {{$patient->user->firstname}}
                             </td>
-                            <td><span class="badge bg-label-primary me-1">Active</span></td>
-                            <td><span class="badge bg-label-primary me-1">Active</span></td>
-                            <td><span class="badge bg-label-primary me-1">Active</span></td>
+                            <td><span class="badge bg-label-primary me-1">{{$patient->user->contact}}</span></td>
+                            <td><span class="badge bg-label-primary me-1">{{$patient->user->email}}</span></td>
+                            <td><span class="badge bg-label-primary me-1">{{$patient->user->enable}}</span></td>
                             <td>
                                 <div class="dropdown">
                                     <button
@@ -84,6 +86,9 @@
                                 </div>
                             </td>
                         </tr>
+                        @empty
+                            <p>Liste vide </p>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
