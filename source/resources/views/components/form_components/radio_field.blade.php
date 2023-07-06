@@ -1,7 +1,7 @@
 @php
     $label = $label ?? "";
     $name =  $name ?? "";
-    $value = $value ?? "";
+    $selceted_value = $selceted_value ?? "";
     $placeholder = $placeholder ?? "";
     $class = $class ?? "col-12"
 
@@ -14,7 +14,9 @@
             name="{{ $name  }}"
             class="form-check-input @error($name) is-invalid @enderror"
             type="radio"
+            value="{{ $loop->index  }}"
             id="{{ $name."_".$loop->index  }}"
+            @if($selceted_value==$loop->index) checked @endif
         />
         <label class="form-check-label" for="{{ $name  }}"> {{ $d }} </label>
       </div>

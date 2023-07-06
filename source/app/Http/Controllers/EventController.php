@@ -28,7 +28,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('events.create');
+        return view('events.create_or_edit');
     }
 
     /**
@@ -40,15 +40,12 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $request['staff_id'] = Personnel::all()->first()->staff_id;
-        /*
-        dd($request->type);
-        dd($request->all());
-        */
+        $evenement = Evenement::create($request->all());
 
         $images = $request->file('images');
         if ($images){
-            $chemin_image = strtolower($request->title).'.'.$images->extension();
-            $images->storeAs('public/images/evennements', $chemin_image);
+            $chemin_image = '/images/evennements/'.strtolower($request->title).'.'.$images->extension();
+            $images->storeAs('public/', $chemin_image);
         } else {
             $chemin_image = "default_event_illustration.png";
         }
@@ -57,24 +54,9 @@ class EventController extends Controller
             'image_path' => $chemin_image,
             'event_id' => $evenement->event_id,
         ]);
-
-        $evenement = Evenement::create($request->all());
-        for ($i=0; $i<count($request->date); $i++){
-            Jour::create([
-                'date' => $request->date[$i],
-                'start_time' => $request->start_time[$i],
-                'end_time' => $request->end_time[$i],
-                'link' => $request->link[$i],
-                'date' => $request->country[$i],
-                'town' => $request->town[$i],
-                'address' => $request->address[$i],
-                'longitude' => $request->longitude[$i],
-                'latitude' => $request->latitude[$i],
-                'event_id' => $evenement->event_id,
-            ]);
-        }
-
+        $evenement->setDayToEvent($request);
         return redirect()->route('events.index');
+
     }
 
     /**
@@ -94,9 +76,10 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Evenement $evenement)
+    public function edit(Evenement $event)
     {
-        return view('evenements.edit',compact('evenement'));
+        //dd($event);
+        return view('events.create_or_edit',compact('event'));
     }
 
     /**
@@ -108,9 +91,7 @@ class EventController extends Controller
      */
     public function update(Request $request, Evenement $evenement)
     {
-
         $evenement->update($request->all());
-
         return redirect()->route('evenements.index');
     }
 

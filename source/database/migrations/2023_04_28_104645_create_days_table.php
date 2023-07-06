@@ -19,9 +19,9 @@ class CreateDaysTable extends Migration
             $table->timeTz('start_time');
             $table->timeTz('end_time');
             $table->string('link')->nullable();
-            $table->string("country");
-            $table->string("town");
-            $table->string("address");
+            $table->string("country")->nullable();
+            $table->string("town")->nullable();
+            $table->string("address")->nullable();
             $table->string("longitude")->nullable();
             $table->string("latitude")->nullable();
             $table->bigInteger('event_id');
