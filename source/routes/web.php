@@ -20,8 +20,7 @@ use App\Http\Controllers\SpecialityController;
 use App\Http\Controllers\UniteController;
 
 use App\Http\Controllers\MeetController;
-
-
+use App\Models\Consultant;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +57,9 @@ Route::get('/create_staff', function () {
     return view('staffs.create');
 });
 
+
+Route::get('/create_consultant', [ConsultantController::class, 'profile_confirm']);
+
 /*Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');*/
@@ -82,3 +84,4 @@ Route::resources([
 ]);
 
 require __DIR__.'/auth.php';
+

@@ -13,8 +13,35 @@ class ConsultantController extends Controller
     public function index()
     {
         $consultant = Consultant::all();
+        //dd($consultant);
         return view('consultants.index', compact('consultant'));
     }
+
+    public function profile_confirm()
+     {
+
+        //      Consultant::create([
+
+        //     'profile_confimed'=>'true',
+        // ]);
+
+        // Consultant::create([
+
+        //     'profile_confimed'=>'false',
+        // ]);
+        // Consultant::create([
+
+        //     'profile_confimed'=>'false',
+        // ]);
+
+
+
+        $consultant = Consultant::where('profile_confimed', '=', false)->get();
+        dd($consultant);
+        return view('consultants.index', compact('consultant'));
+        //return "bakiscofield0";
+    }
+
 
     public function create()
     {
